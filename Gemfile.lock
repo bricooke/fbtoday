@@ -1,0 +1,21 @@
+GIT
+  remote: git://github.com/bcurren/freshbooks.rb
+  revision: a6d97ffda3e940e143aee862bae5fa280aa8ca94
+  specs:
+    bcurren-freshbooks.rb (3.0.23)
+      activesupport
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (3.2.1)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    i18n (0.6.0)
+    multi_json (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bcurren-freshbooks.rb!
