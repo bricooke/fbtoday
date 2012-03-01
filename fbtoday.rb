@@ -12,9 +12,16 @@ else
 end
 
 hours = 0.0
+projects = {}
 
 FreshBooks::TimeEntry.list(:date_from => date, :date_to => date).each do |te|
-  project = FreshBooks::Project.get(te.project_id)
+  project = projects[te.project_id]
+
+  if project.nil?
+    project = FreshBooks::Project.get(te.project_id)
+    projects[te.project_id] = project
+  end
+
   hours += te.hours
   puts "#{te.hours}\t#{project.name}\t#{te.notes}"
 end
