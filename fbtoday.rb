@@ -15,16 +15,22 @@ hours = 0.0
 projects = {}
 
 FreshBooks::TimeEntry.list(:date_from => date, :date_to => date).each do |te|
-  project = projects[te.project_id]
+  project_info = projects[te.project_id]
 
-  if project.nil?
+  if project_info.nil?
     project = FreshBooks::Project.get(te.project_id)
-    projects[te.project_id] = project
+    project_info = {:project => project, :hours => 0.0}
+    projects[te.project_id] = project_info
   end
 
   hours += te.hours
+  project_info[:hours] += te.hours
   puts "#{te.hours}\t#{project.name}\t#{te.notes}"
 end
 
 puts "----"
-puts "#{hours}"
+projects.values.each do |project_info|
+  puts "#{project_info[:hours]}\t#{project_info[:project].name}"
+end
+
+puts "#{hours}\tTotal"
