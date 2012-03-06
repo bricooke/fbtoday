@@ -25,7 +25,7 @@ FreshBooks::TimeEntry.list(:date_from => date, :date_to => date).each do |te|
 
   hours += te.hours
   project_info[:hours] += te.hours
-  puts "#{te.hours}\t#{project.name}\t#{te.notes}"
+  puts "#{te.hours}\t#{project_info[:project].name}\t#{te.notes}" 
 end
 
 puts "----"
