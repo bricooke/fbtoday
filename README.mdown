@@ -1,0 +1,20 @@
+**Usage:**
+
+<pre><code>
+FBAPI_TOKEN={YOUR_FRESHBOOKS_API_TOKEN} bundle exec ./fbtoday.rb [2012-02-27] [2012-02-30]
+</code></pre>
+
+If you don't pass a date for the from or to dates, Date.today is used.
+
+Output:
+
+<pre><code>
+6.0     Project Name    What I did for that project
+2.0     Project Name    What I did for that project
+----
+8.0
+</code></pre>
+
+I use this as a simple way to see what I did today and to cut and paste the report for one of my clients who requires an email status report with a detailed log.
+
+If you want to filter by project, pass PROJECT as an environment variable like PROJECT="Project Name".
